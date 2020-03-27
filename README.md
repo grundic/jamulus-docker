@@ -19,6 +19,28 @@ docker run \
   -n -s -p 22124 -l /jam/jamulus.log -w "Wellcome to Jamulus docker server."
 ```
 
+## docker compose
+
+```yaml
+---
+version: "3.7"
+services:
+  jamulus:
+    container_name: jamulus 
+    image: grundic/jamulus
+    restart: always
+    ports:
+      - "22124:22124/udp"
+    entrypoint:
+      - "Jamulus"
+      - "--server"
+      - "--nogui"
+      - "--welcomemessage"
+      - "Welcome to the Jamulus rehearsal room"
+      - "--numchannels"
+      - "16"
+```
+
 | ⚠️ To improve performance, please consider using docker's [realtime scheduler](https://docs.docker.com/config/containers/resource_constraints/#configure-the-realtime-scheduler) |
 | --- |
 
