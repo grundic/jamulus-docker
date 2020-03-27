@@ -19,7 +19,7 @@ docker run \
   -n -s -p 22124 -l /jam/jamulus.log -w "Wellcome to Jamulus docker server."
 ```
 
-## docker compose
+## docker-compose
 
 ```yaml
 ---
@@ -40,6 +40,8 @@ services:
       - "--numchannels"
       - "16"
 ```
+
+You can monitor output with `docker logs -f jamulus`
 
 | ⚠️ To improve performance, please consider using docker's [realtime scheduler](https://docs.docker.com/config/containers/resource_constraints/#configure-the-realtime-scheduler) |
 | --- |
