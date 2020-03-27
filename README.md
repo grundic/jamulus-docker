@@ -16,7 +16,7 @@ docker run \
   -p 22124:22124/udp \
   -v $(pwd)/jam:/jam \
   grundic/jamulus \
-  -n -s -p 22124 -l /jam/jamulus.log -y /jam/history.jpg -w "Wellcome to Jamulus docker server."
+  -n -s -p 22124 -l /jam/jamulus.log -w "Wellcome to Jamulus docker server."
 ```
 
 | ⚠️ To improve performance, please consider using docker's [realtime scheduler](https://docs.docker.com/config/containers/resource_constraints/#configure-the-realtime-scheduler) |
