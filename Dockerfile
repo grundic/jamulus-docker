@@ -33,7 +33,7 @@ RUN \
 FROM alpine:3.9
 
 RUN apk add --update --no-cache \
-    qt-x11 icu-libs
+    qt-x11 icu-libs tzdata
 
 COPY --from=builder /usr/local/bin/Jamulus /usr/local/bin/Jamulus
 ENTRYPOINT ["Jamulus"]
