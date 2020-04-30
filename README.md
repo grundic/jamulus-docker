@@ -7,10 +7,23 @@ The Jamulus software enables musicians to perform real-time jam sessions over th
 
 Here are some example snippets to help you get started creating a container.
 
-## docker
+## docker: minimum setup
+
+This starts with the default options: "-s -n"
 
 ```bash
 docker run \
+  --name jamulus \
+  -d --rm \
+  -p 22124:22124/udp \
+  grundic/jamulus
+```
+
+## docker: custom options
+
+```bash
+docker run \
+  -e TZ=America/Los_Angeles
   --name jamulus \
   -d --rm \
   -p 22124:22124/udp \
@@ -31,6 +44,8 @@ services:
     restart: always
     ports:
       - "22124:22124/udp"
+    environment:
+      TZ: "America/Los_Angeles"  
     entrypoint:
       - "Jamulus"
       - "--server"

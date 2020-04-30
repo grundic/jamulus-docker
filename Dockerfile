@@ -1,6 +1,6 @@
 FROM alpine:3.9 as builder
 
-ENV JAMULUS_VERSION 3.4.4
+ENV JAMULUS_VERSION 3_5_2
 
 RUN \
  echo "**** updating system packages ****" && \
@@ -16,11 +16,11 @@ RUN \
 WORKDIR /tmp
 RUN \
  echo "**** getting source code ****" && \
-   wget "https://netix.dl.sourceforge.net/project/llcon/Jamulus/${JAMULUS_VERSION}/Jamulus-${JAMULUS_VERSION}.tar.gz" && \
-   tar xzf Jamulus-${JAMULUS_VERSION}.tar.gz
+   wget "https://github.com/corrados/jamulus/archive/r${JAMULUS_VERSION}.tar.gz" && \
+   tar xzf r${JAMULUS_VERSION}.tar.gz
 
-# no dash between name and version.
-WORKDIR /tmp/Jamulus${JAMULUS_VERSION}
+# Github directory format for tar.gz export
+WORKDIR /tmp/jamulus-r${JAMULUS_VERSION}
 RUN \
  echo "**** compiling source code ****" && \
    qmake "CONFIG+=nosound" Jamulus.pro && \
@@ -35,7 +35,7 @@ FROM alpine:3.9
 EXPOSE 22124/udp
 
 RUN apk add --update --no-cache \
-    qt-x11 icu-libs
+    qt-x11 icu-libs tzdata
 
 COPY --from=builder /usr/local/bin/Jamulus /usr/local/bin/Jamulus
 COPY entrypoint.sh /entrypoint.sh
