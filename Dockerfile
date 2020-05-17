@@ -1,6 +1,6 @@
-FROM alpine:3.9 as builder
+FROM alpine:3.11 as builder
 
-ENV JAMULUS_VERSION 3_5_2
+ENV JAMULUS_VERSION 3_5_3
 
 RUN \
  echo "**** updating system packages ****" && \
@@ -11,7 +11,9 @@ RUN \
    apk add --no-cache --virtual .build-dependencies \
         build-base \
         wget \
-        qt-dev
+        qt5-qtbase-dev \
+        qt5-qttools-dev \
+        qtchooser
 
 WORKDIR /tmp
 RUN \
@@ -30,10 +32,10 @@ RUN \
    rm -rf /tmp/* && \
    apk del .build-dependencies
 
-FROM alpine:3.9
+FROM alpine:3.11
 
 RUN apk add --update --no-cache \
-    qt-x11 icu-libs tzdata
+    qt5-qtbase-x11 icu-libs tzdata
 
 COPY --from=builder /usr/local/bin/Jamulus /usr/local/bin/Jamulus
 ENTRYPOINT ["Jamulus"]
