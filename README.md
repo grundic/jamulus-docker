@@ -1,5 +1,5 @@
 # Jamulus 🎶
-[Docker](https://hub.docker.com/repository/docker/grundic/jamulus) configuration for Jamulus music server.
+[Docker](https://hub.docker.com/repository/docker/grundic/jamulus) configuration for [Jamulus](https://github.com/corrados/jamulus) music server.
 
 The Jamulus software enables musicians to perform real-time jam sessions over the internet. There is one server running the Jamulus server software which collects the audio data from each Jamulus client, mixes the audio data and sends the mix back to each client.
 
