@@ -1,6 +1,6 @@
 FROM alpine:3.11 as builder
 
-ENV JAMULUS_VERSION 3_5_7
+ENV JAMULUS_VERSION 3_5_9
 
 RUN \
  echo "**** updating system packages ****" && \
