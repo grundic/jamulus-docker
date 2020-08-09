@@ -25,7 +25,7 @@ RUN \
 WORKDIR /tmp/jamulus-r${JAMULUS_VERSION}
 RUN \
  echo "**** compiling source code ****" && \
-   qmake "CONFIG+=nosound" Jamulus.pro && \
+   qmake "CONFIG+=nosound headless" Jamulus.pro && \
    make clean && \
    make && \
    cp Jamulus /usr/local/bin/ && \
