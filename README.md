@@ -53,17 +53,22 @@ You can monitor output with `docker logs -f jamulus`
 
 |Parameter   |Description   |
 |---|---|
-|-a, --servername   |server name, required for HTML status   |
-|-e, --centralserver   |address of the central server   |
-|-g, --pingservers   |ping servers in list to keep NAT port open   |
-|-l, --log   |enable logging, set file name   |
-|-L, --licence   |a licence must be accepted on a new connection   |
-|-m, --htmlstatus   |enable HTML status file, set file name   |
-|-n, --nogui   |disable GUI   |
-|-o, --serverinfo   |infos of the server(s) in the format:<br>`[name];[city];[country as QLocale ID]; ...`<br>`[server1 address];[server1 name]; ...`<br>`[server1 city]; ...`<br>`[server1 country as QLocale ID]; ...`<br>`[server2 address]; ... `   |
-|-p, --port   |local port number   |
-|-s, --server   |start server   |
-|-u, --numchannels   |maximum number of channels   |
-|-w, --welcomemessage   |welcome message on connect   |
-|-y, --history   |enable connection history and set file name   |
-|-z, --startminimized   |start minimizied   |
+|-a, --servername |server name, required for HTML status |
+|-d, --discononquit |disconnect all clients on quit |
+|-e, --centralserver |address of the central server (or 'localhost' to be a central server) |
+|-f, --listfilter |server list whitelist filter in the format:<br>`[IP address 1];[IP address 2];[IP address 3]; ...` |
+|-F, --fastupdate |use 64 samples frame size mode |
+|-g, --pingservers |ping servers in list to keep NAT port open (central server only) |
+|-l, --log |enable logging, set file name |
+|-L, --licence |a licence must be accepted on a new connection |
+|-m, --htmlstatus |enable HTML status file, set file name |
+|-n, --nogui |disable GUI |
+|-o, --serverinfo |infos of the server(s) in the format:<br>`[name];[city];[country as QLocale ID]; ...`<br>`[server1 address];[server1 name]; ...`<br>`[server1 city]; ...`<br>`[server1 country as QLocale ID]; ...`<br>`[server2 address]; ... ` |
+|-R, --recording |sets directory to contain recorded jams |
+|--norecord |disables recording (when enabled by default by -R) |
+|-p, --port |local port number |
+|-s, --server |start server |
+|-T, --multithreading |use multithreading to make better use of multi-core CPUs and support more clients |
+|-u, --numchannels |maximum number of channels |
+|-w, --welcomemessage |welcome message on connect |
+|-z, --startminimized |start minimizied |
