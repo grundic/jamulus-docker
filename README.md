@@ -11,13 +11,13 @@ Here are some example snippets to help you get started creating a container.
 
 ```bash
 docker run \
-  -e TZ=America/Los_Angeles
+  -e TZ=America/Los_Angeles \
   --name jamulus \
   -d --rm \
   -p 22124:22124/udp \
   -v $(pwd)/jam:/jam \
   grundic/jamulus \
-  -n -s -p 22124 -l /jam/jamulus.log -w "Wellcome to Jamulus docker server."
+  -n -s -p 22124 -l /jam/jamulus.log -w "Welcome to Jamulus docker server."
 ```
 
 ## docker-compose
