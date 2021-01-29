@@ -18,7 +18,7 @@ RUN \
 WORKDIR /tmp
 RUN \
  echo "**** getting source code ****" && \
-   wget "https://github.com/corrados/jamulus/archive/r${JAMULUS_VERSION}.tar.gz" && \
+   wget "https://github.com/jamulussoftware/jamulus/archive/r${JAMULUS_VERSION}.tar.gz" && \
    tar xzf r${JAMULUS_VERSION}.tar.gz
 
 # Github directory format for tar.gz export
