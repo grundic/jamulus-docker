@@ -34,8 +34,12 @@ RUN \
 
 FROM alpine:3.11
 
+EXPOSE 22124/udp
+
 RUN apk add --update --no-cache \
     qt5-qtbase-x11 icu-libs tzdata
 
 COPY --from=builder /usr/local/bin/Jamulus /usr/local/bin/Jamulus
-ENTRYPOINT ["Jamulus"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod 755 /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
