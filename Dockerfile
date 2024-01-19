@@ -1,7 +1,5 @@
 FROM alpine:3.11 as builder
 
-ENV JAMULUS_VERSION 3_9_0
-
 RUN \
  echo "**** updating system packages ****" && \
  apk update
@@ -18,11 +16,11 @@ RUN \
 WORKDIR /tmp
 RUN \
  echo "**** getting source code ****" && \
-   wget "https://github.com/jamulussoftware/jamulus/archive/r${JAMULUS_VERSION}.tar.gz" && \
-   tar xzf r${JAMULUS_VERSION}.tar.gz
+   wget "https://github.com/jamulussoftware/jamulus/archive/latest.tar.gz" && \
+   tar xzf latest.tar.gz
 
 # Github directory format for tar.gz export
-WORKDIR /tmp/jamulus-r${JAMULUS_VERSION}
+WORKDIR /tmp/jamulus-latest
 RUN \
  echo "**** compiling source code ****" && \
    qmake "CONFIG+=nosound headless" Jamulus.pro && \
