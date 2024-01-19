@@ -20,7 +20,7 @@ RUN \
    tar xzf latest.tar.gz
 
 # Github directory format for tar.gz export
-WORKDIR /tmp/jamulus-r${JAMULUS_VERSION}
+WORKDIR /tmp/jamulus-latest
 RUN \
  echo "**** compiling source code ****" && \
    qmake "CONFIG+=nosound headless" Jamulus.pro && \
